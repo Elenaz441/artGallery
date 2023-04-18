@@ -17,5 +17,9 @@ public class ExhibitionContext {
 
     BigDecimal price;
 
+    Integer countPlaces;
+
+    String address;
+
 //    TODO look how do here participants and pictures
 }

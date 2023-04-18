@@ -33,7 +33,9 @@ public class Exhibition {
 
     BigDecimal price;
 
-    Integer places;
+    Integer countPlaces;
+
+    String address;
 
     @ManyToMany()
     @JoinTable(name = "exhibition_user",

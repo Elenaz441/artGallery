@@ -13,6 +13,7 @@ public class PictureResponse {
     Date creationDate;
     List<ExhibitionInfo> exhibitions;
 
+    @Value
     public static class ExhibitionInfo {
         Long id;
         String title;

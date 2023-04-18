@@ -19,7 +19,8 @@ public class ExhibitionResponse {
     Date startDate;
     Date endDate;
     BigDecimal price;
-    Integer places;
+    Integer countPlaces;
+    String address;
     List<UserInfo> participants;
     List<PictureInfo> pictures;
 
@@ -34,6 +35,5 @@ public class ExhibitionResponse {
         Long id;
         String title;
         String artist;
-        Date creationDate;
     }
 }

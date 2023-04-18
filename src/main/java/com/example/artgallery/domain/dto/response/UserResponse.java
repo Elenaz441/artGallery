@@ -12,6 +12,7 @@ public class UserResponse {
     String role;
     List<ExhibitionInfo> exhibitions;
 
+    @Value
     public static class ExhibitionInfo {
         Long id;
         String title;
