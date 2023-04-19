@@ -22,7 +22,7 @@ public class PictureFactory {
         );
     }
 
-    public PictureContext createPictureFrom(CreatePictureRequest createPictureRequest) {
+    public PictureContext createContextFrom(CreatePictureRequest createPictureRequest) {
         return new PictureContext(
                 createPictureRequest.getTitle(),
                 createPictureRequest.getArtist(),

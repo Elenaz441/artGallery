@@ -19,7 +19,7 @@ import java.util.List;
 public class Picture {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hibernate_sequence")
-    @SequenceGenerator(name = "hibernate_sequence", sequenceName = "hibernate_sequence", allocationSize = 10)
+    @SequenceGenerator(name = "hibernate_sequence", sequenceName = "hibernate_sequence")
     Long id;
 
     String title;

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2023-04-19-23-41" author="ezasy" context="prod">
+
+        <createSequence sequenceName="hibernate_sequence" startValue="1"/>
+
+        <createTable tableName="user">
+
+            <column name="id" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="username" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="password" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="role" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+
+        <createTable tableName="picture">
+
+            <column name="id" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="title" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="creationDate" type="date">
+
+            </column>
+
+        </createTable>
+
+
+        <createTable tableName="exhibition">
+
+            <column name="id" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="title" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="description" type="varchar">
+
+            </column>
+
+            <column name="startDate" type="timestamp">
+
+            </column>
+
+            <column name="endDate" type="timestamp">
+
+            </column>
+
+            <column name="price" type="numeric">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="countPlaces" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="address" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+        <createTable tableName="user_exhibition">
+            <column name="user_id" type="bigint">
+                <constraints foreignKeyName="user_ex_fk"
+                             referencedTableName="user"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="exhibition_id" type="bigint">
+                <constraints foreignKeyName="ex_user_fk"
+                             referencedTableName="exhibition"
+                             referencedColumnNames="id"/>
+            </column>
+        </createTable>
+
+
+        <createTable tableName="picture_exhibition">
+            <column name="picture_id" type="bigint">
+                <constraints foreignKeyName="pict_ex_fk"
+                             referencedTableName="picture"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="exhibition_id" type="bigint">
+                <constraints foreignKeyName="ex_pict_fk"
+                             referencedTableName="exhibition"
+                             referencedColumnNames="id"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>
