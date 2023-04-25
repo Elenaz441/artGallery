@@ -43,7 +43,7 @@ public class SecurityConfig {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
-                .authoritiesByUsernameQuery("select USERNAME, ROLE from account where USERNAME=?")
-                .usersByUsernameQuery("select USERNAME, PASSWORD, BAN as enabled from account where USERNAME=?");
+                .authoritiesByUsernameQuery("select USERNAME, ROLE from public.user where USERNAME=?")
+                .usersByUsernameQuery("select USERNAME, PASSWORD, ENABLE as enabled from public.user where USERNAME=?");
     }
 }

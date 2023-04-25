@@ -21,7 +21,7 @@ public class UserController {
     UserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<UserResponse> createProduct(@RequestBody CreateUserRequest userRequest) {
+    public ResponseEntity<UserResponse> createUser(@RequestBody CreateUserRequest userRequest) {
         return new ResponseEntity<>(userService.createNewUser(userRequest), HttpStatus.OK);
     }
 }

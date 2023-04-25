@@ -17,7 +17,7 @@ public class ExhibitionContext {
 
     BigDecimal price;
 
-    Integer countPlaces;
+    Long countPlaces;
 
     String address;
 

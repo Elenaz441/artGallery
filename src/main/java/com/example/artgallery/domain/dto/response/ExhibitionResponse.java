@@ -19,7 +19,7 @@ public class ExhibitionResponse {
     Date startDate;
     Date endDate;
     BigDecimal price;
-    Integer countPlaces;
+    Long countPlaces;
     String address;
     List<UserInfo> participants;
     List<PictureInfo> pictures;

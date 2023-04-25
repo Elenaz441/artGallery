@@ -16,11 +16,11 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "user")
+@Table(name = "exhibition")
 public class Exhibition {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hibernate_sequence")
-    @SequenceGenerator(name = "hibernate_sequence", sequenceName = "hibernate_sequence")
+    @SequenceGenerator(name = "hibernate_sequence", sequenceName = "hibernate_sequence", allocationSize = 1)
     Long id;
 
     String title;
@@ -33,18 +33,18 @@ public class Exhibition {
 
     BigDecimal price;
 
-    Integer countPlaces;
+    Long countPlaces;
 
     String address;
 
     @ManyToMany()
-    @JoinTable(name = "exhibition_user",
+    @JoinTable(name = "user_exhibition",
             joinColumns = { @JoinColumn(name = "exhibition_id") },
             inverseJoinColumns = { @JoinColumn(name = "user_id") })
     List<User> participants;
 
     @ManyToMany()
-    @JoinTable(name = "exhibition_picture",
+    @JoinTable(name = "picture_exhibition",
             joinColumns = { @JoinColumn(name = "exhibition_id") },
             inverseJoinColumns = { @JoinColumn(name = "picture_id") })
     List<Picture> pictures;

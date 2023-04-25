@@ -18,7 +18,7 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hibernate_sequence")
-    @SequenceGenerator(name = "hibernate_sequence", sequenceName = "hibernate_sequence")
+    @SequenceGenerator(name = "hibernate_sequence", sequenceName = "hibernate_sequence", allocationSize = 1)
     Long id;
 
     String username;
@@ -26,6 +26,8 @@ public class User {
     String password;
 
     String role;
+
+    Boolean enable;
 
     @ManyToMany(mappedBy = "participants")
     @JsonIgnore
@@ -36,6 +38,7 @@ public class User {
                 .username(context.getUsername())
                 .password(context.getPassword())
                 .role(context.getRole())
+                .enable(true)
                 .exhibitions(new LinkedList<>())
                 .build();
     }

@@ -17,7 +17,7 @@ public class CreateExhibitionRequest {
 
     BigDecimal price;
 
-    Integer countPlaces;
+    Long countPlaces;
 
     String address;
 }

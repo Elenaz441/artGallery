@@ -5,9 +5,16 @@ import com.example.artgallery.domain.dto.response.PictureResponse;
 import com.example.artgallery.domain.entity.Exhibition;
 import com.example.artgallery.domain.entity.Picture;
 import com.example.artgallery.domain.entity.context.PictureContext;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
+import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
 
+@Component
+@RequiredArgsConstructor
+@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class PictureFactory {
 
     public PictureResponse createResponse(Picture picture) {

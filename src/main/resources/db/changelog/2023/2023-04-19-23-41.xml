@@ -7,7 +7,7 @@
 
     <changeSet id="2023-04-19-23-41" author="ezasy" context="prod">
 
-        <createSequence sequenceName="hibernate_sequence" startValue="1"/>
+        <createSequence sequenceName="hibernate_sequence" startValue="1" incrementBy="1"/>
 
         <createTable tableName="user">
 
@@ -27,6 +27,10 @@
                 <constraints nullable="false"/>
             </column>
 
+            <column name="enable" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+
         </createTable>
 
 
@@ -40,7 +44,11 @@
                 <constraints nullable="false"/>
             </column>
 
-            <column name="creationDate" type="date">
+            <column name="artist" type="varchar">
+
+            </column>
+
+            <column name="creation_date" type="timestamp">
 
             </column>
 
@@ -61,11 +69,11 @@
 
             </column>
 
-            <column name="startDate" type="timestamp">
+            <column name="start_date" type="timestamp">
 
             </column>
 
-            <column name="endDate" type="timestamp">
+            <column name="end_date" type="timestamp">
 
             </column>
 
@@ -73,7 +81,7 @@
                 <constraints nullable="false"/>
             </column>
 
-            <column name="countPlaces" type="bigint">
+            <column name="count_places" type="bigint">
                 <constraints nullable="false"/>
             </column>
 
@@ -82,6 +90,7 @@
             </column>
 
         </createTable>
+
 
         <createTable tableName="user_exhibition">
             <column name="user_id" type="bigint">

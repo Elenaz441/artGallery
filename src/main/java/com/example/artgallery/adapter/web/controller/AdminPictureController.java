@@ -1,31 +1,30 @@
 package com.example.artgallery.adapter.web.controller;
 
 import com.example.artgallery.adapter.web.annotation.AdminApiV1;
-import com.example.artgallery.adapter.web.annotation.ApiV1;
 import com.example.artgallery.domain.dto.request.CreateExhibitionRequest;
+import com.example.artgallery.domain.dto.request.CreatePictureRequest;
 import com.example.artgallery.domain.dto.response.ExhibitionResponse;
+import com.example.artgallery.domain.dto.response.PictureResponse;
 import com.example.artgallery.service.ExhibitionService;
+import com.example.artgallery.service.PictureService;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.List;
-
 import static lombok.AccessLevel.PRIVATE;
 
-@ApiV1
+@AdminApiV1
 @RequiredArgsConstructor
 @FieldDefaults(level = PRIVATE, makeFinal = true)
-public class ExhibitionController {
+public class AdminPictureController {
 
-    ExhibitionService exhibitionService;
+    PictureService pictureService;
 
-    @GetMapping("/exhibitions")
-    public ResponseEntity<List<ExhibitionResponse>> getExhibitions() {
-        return new ResponseEntity<>(exhibitionService.getExhibitions(), HttpStatus.OK);
+    @PostMapping("/picture")
+    public ResponseEntity<PictureResponse> createPicture(@RequestBody CreatePictureRequest pictureRequest) {
+        return new ResponseEntity<>(pictureService.createNewPicture(pictureRequest), HttpStatus.OK);
     }
 }

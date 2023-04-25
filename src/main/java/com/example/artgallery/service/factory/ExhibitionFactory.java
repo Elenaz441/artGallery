@@ -6,9 +6,16 @@ import com.example.artgallery.domain.entity.Exhibition;
 import com.example.artgallery.domain.entity.Picture;
 import com.example.artgallery.domain.entity.User;
 import com.example.artgallery.domain.entity.context.ExhibitionContext;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
+import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
 
+@Component
+@RequiredArgsConstructor
+@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class ExhibitionFactory {
 
     public ExhibitionResponse createResponse(Exhibition exhibition) {
