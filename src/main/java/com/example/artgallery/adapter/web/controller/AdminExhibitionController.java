@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.validation.Valid;
+
 import static lombok.AccessLevel.PRIVATE;
 
 @AdminApiV1
@@ -21,7 +23,7 @@ public class AdminExhibitionController {
     ExhibitionService exhibitionService;
 
     @PostMapping("/exhibition")
-    public ResponseEntity<ExhibitionResponse> createExhibition(@RequestBody CreateExhibitionRequest exhibitionRequest) {
+    public ResponseEntity<ExhibitionResponse> createExhibition(@RequestBody @Valid CreateExhibitionRequest exhibitionRequest) {
         return new ResponseEntity<>(exhibitionService.createNewExhibition(exhibitionRequest), HttpStatus.OK);
     }
 }

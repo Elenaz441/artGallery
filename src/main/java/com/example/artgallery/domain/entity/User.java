@@ -21,6 +21,7 @@ public class User {
     @SequenceGenerator(name = "hibernate_sequence", sequenceName = "hibernate_sequence", allocationSize = 1)
     Long id;
 
+    @Column(unique = true)
     String username;
 
     String password;
