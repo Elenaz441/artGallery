@@ -1,9 +1,9 @@
-package com.example.artgallery.adapter.web.validation;
+package com.example.artgallery.adapter.web.validation.constraint;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -12,14 +12,14 @@ import java.lang.annotation.Target;
 import static java.lang.annotation.ElementType.FIELD;
 
 @NotNull
-@Future
+@PastOrPresent
 @Target({ FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = { })
 @Documented
-public @interface DateExhibitionConstraint {
+public @interface DatePictureConstraint {
 
-    String message() default "{DateExhibitionConstraint.invalid}";
+    String message() default "{DatePictureConstraint.invalid}";
 
     Class<?>[] groups() default { };
 

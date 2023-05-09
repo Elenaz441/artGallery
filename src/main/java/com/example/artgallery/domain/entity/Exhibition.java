@@ -1,7 +1,6 @@
 package com.example.artgallery.domain.entity;
 
 import com.example.artgallery.domain.entity.context.ExhibitionContext;
-import com.example.artgallery.domain.entity.context.UserContext;
 import lombok.*;
 
 import javax.persistence.*;
@@ -55,8 +54,16 @@ public class Exhibition {
                 .description(context.getDescription())
                 .startDate(context.getStartDate())
                 .endDate(context.getEndDate())
+                .price(context.getPrice())
+                .countPlaces(context.getCountPlaces())
+                .address(context.getAddress())
                 .participants(new LinkedList<>())
                 .pictures(new LinkedList<>())
                 .build();
+    }
+
+    public void addPicture(Picture picture) {
+        this.pictures.add(picture);
+        picture.getExhibitions().add(this);
     }
 }

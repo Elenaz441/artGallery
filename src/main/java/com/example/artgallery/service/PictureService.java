@@ -1,6 +1,5 @@
 package com.example.artgallery.service;
 
-
 import com.example.artgallery.domain.dto.request.CreatePictureRequest;
 import com.example.artgallery.domain.dto.response.PictureResponse;
 

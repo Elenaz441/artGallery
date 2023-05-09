@@ -1,12 +1,13 @@
 package com.example.artgallery.domain.dto.request;
 
-import com.example.artgallery.adapter.web.validation.DateExhibitionConstraint;
+import com.example.artgallery.adapter.web.validation.constraint.DateExhibitionConstraint;
 import lombok.Value;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Value
 public class CreateExhibitionRequest {
@@ -30,4 +31,6 @@ public class CreateExhibitionRequest {
 
     @NotBlank
     String address;
+
+    List<Long> pictures;
 }

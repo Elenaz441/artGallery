@@ -4,6 +4,7 @@ import lombok.Value;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Value
 public class ExhibitionContext {
@@ -21,5 +22,5 @@ public class ExhibitionContext {
 
     String address;
 
-//    TODO look how do here participants and pictures
+    List<Long> pictures;
 }

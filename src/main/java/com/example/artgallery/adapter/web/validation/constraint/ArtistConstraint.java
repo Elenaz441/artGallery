@@ -1,4 +1,6 @@
-package com.example.artgallery.adapter.web.validation;
+package com.example.artgallery.adapter.web.validation.constraint;
+
+import com.example.artgallery.adapter.web.validation.MyArtistValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

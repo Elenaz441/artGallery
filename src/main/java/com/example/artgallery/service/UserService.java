@@ -5,4 +5,6 @@ import com.example.artgallery.domain.dto.response.UserResponse;
 
 public interface UserService {
     UserResponse createNewUser(CreateUserRequest userRequest);
+
+    UserResponse addExhibition(Long idUser, Long idExhibition);
 }

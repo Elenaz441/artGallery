@@ -45,7 +45,8 @@ public class ExhibitionFactory {
                 createExhibitionRequest.getEndDate(),
                 createExhibitionRequest.getPrice(),
                 createExhibitionRequest.getCountPlaces(),
-                createExhibitionRequest.getAddress()
+                createExhibitionRequest.getAddress(),
+                createExhibitionRequest.getPictures()
         );
     }
 

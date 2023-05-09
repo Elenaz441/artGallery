@@ -1,5 +1,7 @@
 package com.example.artgallery.adapter.web.validation;
 
+import com.example.artgallery.adapter.web.validation.constraint.ArtistConstraint;
+
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 

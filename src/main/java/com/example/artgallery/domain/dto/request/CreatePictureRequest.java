@@ -1,7 +1,7 @@
 package com.example.artgallery.domain.dto.request;
 
-import com.example.artgallery.adapter.web.validation.ArtistConstraint;
-import com.example.artgallery.adapter.web.validation.DatePictureConstraint;
+import com.example.artgallery.adapter.web.validation.constraint.ArtistConstraint;
+import com.example.artgallery.adapter.web.validation.constraint.DatePictureConstraint;
 import lombok.Value;
 
 import javax.validation.constraints.NotBlank;

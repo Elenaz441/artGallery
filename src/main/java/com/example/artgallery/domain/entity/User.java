@@ -1,11 +1,11 @@
 package com.example.artgallery.domain.entity;
 
 import com.example.artgallery.domain.entity.context.UserContext;
+import com.example.artgallery.domain.event.NewUserCreated;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.LinkedList;
 import java.util.List;
 
 @Entity
@@ -15,7 +15,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "user")
-public class User {
+public class User extends BaseDomainEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hibernate_sequence")
     @SequenceGenerator(name = "hibernate_sequence", sequenceName = "hibernate_sequence", allocationSize = 1)
@@ -34,13 +35,16 @@ public class User {
     @JsonIgnore
     List<Exhibition> exhibitions;
 
-    public static User createUserFrom(UserContext context) {
-        return User.builder()
-                .username(context.getUsername())
-                .password(context.getPassword())
-                .role(context.getRole())
-                .enable(true)
-                .exhibitions(new LinkedList<>())
-                .build();
+    public User(UserContext context) {
+        registerEvent(() -> NewUserCreated.from(context.getUsername()));
+        username = context.getUsername();
+        password = context.getPassword();
+        role = context.getRole();
+        enable = true;
+    }
+
+    public void addExhibition(Exhibition exhibition) {
+        this.exhibitions.add(exhibition);
+        exhibition.getParticipants().add(this);
     }
 }

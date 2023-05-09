@@ -1,12 +1,6 @@
 package com.example.artgallery.domain.dto.response;
 
-import com.example.artgallery.domain.entity.Picture;
-import com.example.artgallery.domain.entity.User;
 import lombok.Value;
-
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;

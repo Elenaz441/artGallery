@@ -1,4 +1,4 @@
-package com.example.artgallery.adapter.web.validation;
+package com.example.artgallery.adapter.web.advice;
 
 import java.util.HashMap;
 import java.util.Map;
