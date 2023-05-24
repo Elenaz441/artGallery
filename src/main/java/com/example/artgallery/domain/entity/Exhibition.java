@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+// Сущности выставки
 @Entity
 @Getter
 @Setter
@@ -36,18 +37,21 @@ public class Exhibition {
 
     String address;
 
+    // Связь многие-ко-многим между сущностью пользователи
     @ManyToMany()
     @JoinTable(name = "user_exhibition",
             joinColumns = { @JoinColumn(name = "exhibition_id") },
             inverseJoinColumns = { @JoinColumn(name = "user_id") })
     List<User> participants;
 
+    // Связь многие-ко-многим между сущностью картины
     @ManyToMany()
     @JoinTable(name = "picture_exhibition",
             joinColumns = { @JoinColumn(name = "exhibition_id") },
             inverseJoinColumns = { @JoinColumn(name = "picture_id") })
     List<Picture> pictures;
 
+    // Получение новой выставки через контекст
     public static Exhibition createExhibitionFrom(ExhibitionContext context) {
         return Exhibition.builder()
                 .title(context.getTitle())
@@ -62,6 +66,7 @@ public class Exhibition {
                 .build();
     }
 
+    // Метод для добавления новой картины на выставку
     public void addPicture(Picture picture) {
         this.pictures.add(picture);
         picture.getExhibitions().add(this);

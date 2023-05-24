@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+// Класс для запроса создания выставки
 @Value
 public class CreateExhibitionRequest {
 

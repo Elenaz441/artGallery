@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+// Класс для краивого вывода сообщения об ошибках, которые связаны с валидацией
 @RestControllerAdvice
 public class ValidationAdvice {
 

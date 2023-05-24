@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.ResponseEntity.status;
 
+// Класс для обработки ошибок с кодом 401 (bad request)
 @ApiAdvice
 @RequiredArgsConstructor
 public class BadRequestAdvice {

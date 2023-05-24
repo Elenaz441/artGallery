@@ -7,6 +7,7 @@ import lombok.Value;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
+// Класс для запроса создания картины
 @Value
 public class CreatePictureRequest {
 

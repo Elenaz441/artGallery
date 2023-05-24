@@ -1,0 +1,3 @@
+my-config:
+  my-env: dev-env
+  my-app: dev-app-art-gallery

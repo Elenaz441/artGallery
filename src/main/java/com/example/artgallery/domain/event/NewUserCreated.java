@@ -2,6 +2,7 @@ package com.example.artgallery.domain.event;
 
 import lombok.Value;
 
+// Класс события создания нового пользователя
 @Value
 public class NewUserCreated {
     String username;

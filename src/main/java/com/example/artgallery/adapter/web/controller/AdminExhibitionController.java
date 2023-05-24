@@ -15,6 +15,7 @@ import javax.validation.Valid;
 
 import static lombok.AccessLevel.PRIVATE;
 
+// Контроллер админа для сущности "Выставки"
 @AdminApiV1
 @RequiredArgsConstructor
 @FieldDefaults(level = PRIVATE, makeFinal = true)
@@ -22,6 +23,7 @@ public class AdminExhibitionController {
 
     ExhibitionService exhibitionService;
 
+    // Метод создания выставки
     @PostMapping("/exhibition")
     public ResponseEntity<ExhibitionResponse> createExhibition(@RequestBody @Valid CreateExhibitionRequest exhibitionRequest) {
         return new ResponseEntity<>(exhibitionService.createNewExhibition(exhibitionRequest), HttpStatus.OK);

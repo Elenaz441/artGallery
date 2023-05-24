@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 import static com.fasterxml.jackson.databind.cfg.ConstructorDetector.USE_PROPERTIES_BASED;
 
+// Класс для обработки входных данных в формате json
 @Configuration
 public class JacksonConfig {
 

@@ -11,6 +11,8 @@ import java.lang.annotation.Target;
 
 import static java.lang.annotation.ElementType.FIELD;
 
+// Аннотация валидации для дат начала и окончания выставки (при создании выставки):
+// даты должны быть позднее текущего времени
 @NotNull
 @Future
 @Target({ FIELD })

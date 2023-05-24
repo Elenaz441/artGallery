@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+// Сущности картины
 @Entity
 @Getter
 @Setter
@@ -32,6 +33,7 @@ public class Picture {
     @JsonIgnore
     List<Exhibition> exhibitions;
 
+    // Получение новой картины через контекст
     public static Picture createPictureFrom(PictureContext context) {
         return Picture.builder()
                 .title(context.getTitle())

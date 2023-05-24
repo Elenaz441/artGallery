@@ -5,6 +5,7 @@ import com.example.artgallery.adapter.web.validation.constraint.ArtistConstraint
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+// Класс для валидации имени художников
 public class MyArtistValidator implements ConstraintValidator<ArtistConstraint, String> {
 
     @Override

@@ -4,6 +4,7 @@ import lombok.Value;
 
 import java.util.Date;
 
+// Контекст для сущности "Картины"
 @Value
 public class PictureContext {
     String title;

@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+// Класс для работы с данными из бд для сущности картины
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -25,6 +26,7 @@ public class PictureServiceImpl implements PictureService {
     PictureFactory pictureFactory;
     PictureRepository pictureRepository;
 
+    // Создание новой картины
     @Override
     public PictureResponse createNewPicture(CreatePictureRequest pictureRequest) {
         PictureContext context = pictureFactory.createContextFrom(pictureRequest);
@@ -33,6 +35,7 @@ public class PictureServiceImpl implements PictureService {
         return pictureFactory.createResponse(picture);
     }
 
+    // Список всех картин
     @Override
     public List<PictureResponse> getPictures() {
         return pictureRepository.findAll().stream()

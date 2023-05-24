@@ -13,6 +13,7 @@ import java.util.List;
 
 import static lombok.AccessLevel.PRIVATE;
 
+// Контроллер пользователя для сущности "Выставки"
 @ApiV1
 @RequiredArgsConstructor
 @FieldDefaults(level = PRIVATE, makeFinal = true)
@@ -20,6 +21,7 @@ public class ExhibitionController {
 
     ExhibitionService exhibitionService;
 
+    // Метод получения всех выставок
     @GetMapping("/exhibitions")
     public ResponseEntity<List<ExhibitionResponse>> getExhibitions() {
         return new ResponseEntity<>(exhibitionService.getExhibitions(), HttpStatus.OK);

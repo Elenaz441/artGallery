@@ -7,6 +7,7 @@ import java.lang.annotation.*;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+// Аннотация для запросов для USER-ов (обычных пользователей)
 @Documented
 @RestController
 @Target({ElementType.TYPE})

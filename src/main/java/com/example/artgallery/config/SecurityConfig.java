@@ -12,6 +12,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import javax.sql.DataSource;
 
+// Класс конфигурации для обработки запросов пользователей (в зависимости от их роли)
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {

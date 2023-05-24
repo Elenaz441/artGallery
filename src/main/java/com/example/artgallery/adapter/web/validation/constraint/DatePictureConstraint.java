@@ -11,6 +11,8 @@ import java.lang.annotation.Target;
 
 import static java.lang.annotation.ElementType.FIELD;
 
+// Аннотация валидации для даты создания картины (при создании картины):
+// дата должна быть не позднее текущего времени
 @NotNull
 @PastOrPresent
 @Target({ FIELD })

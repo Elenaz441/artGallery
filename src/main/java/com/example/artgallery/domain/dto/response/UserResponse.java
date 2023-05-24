@@ -4,6 +4,7 @@ import lombok.Value;
 
 import java.util.List;
 
+// Класс для вывода информации о пользователе
 @Value
 public class UserResponse {
     Long id;
@@ -12,6 +13,7 @@ public class UserResponse {
     String role;
     List<ExhibitionInfo> exhibitions;
 
+    // Выставки, на которые он зарегестрирован
     @Value
     public static class ExhibitionInfo {
         Long id;

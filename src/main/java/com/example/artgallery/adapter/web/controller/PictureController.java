@@ -13,6 +13,7 @@ import java.util.List;
 
 import static lombok.AccessLevel.PRIVATE;
 
+// Контроллер пользователя для сущности "Картины"
 @ApiV1
 @RequiredArgsConstructor
 @FieldDefaults(level = PRIVATE, makeFinal = true)
@@ -20,6 +21,7 @@ public class PictureController {
 
     PictureService pictureService;
 
+    // Метод получения всех картин
     @GetMapping("/pictures")
     public ResponseEntity<List<PictureResponse>> getPictures() {
         return new ResponseEntity<>(pictureService.getPictures(), HttpStatus.OK);

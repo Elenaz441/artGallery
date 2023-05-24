@@ -13,11 +13,13 @@ import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
 
+// Класс для обработки запросов, связанных с выставками
 @Component
 @RequiredArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class ExhibitionFactory {
 
+    // Создания ответа для пользователя о выставке
     public ExhibitionResponse createResponse(Exhibition exhibition) {
         return new ExhibitionResponse(
                 exhibition.getId(),
@@ -37,6 +39,7 @@ public class ExhibitionFactory {
         );
     }
 
+    // Создание контекста выставки
     public ExhibitionContext createContextFrom(CreateExhibitionRequest createExhibitionRequest) {
         return new ExhibitionContext(
                 createExhibitionRequest.getTitle(),
@@ -50,6 +53,7 @@ public class ExhibitionFactory {
         );
     }
 
+    // Создание информации о картине при созданиии ответа пользователю
     private ExhibitionResponse.PictureInfo createPictureInfo(Picture picture) {
         return new ExhibitionResponse.PictureInfo(
                 picture.getId(),
@@ -58,6 +62,7 @@ public class ExhibitionFactory {
         );
     }
 
+    // Создание информации о посетителях при созданиии ответа пользователю
     private ExhibitionResponse.UserInfo createUserInfo(User user) {
         return new ExhibitionResponse.UserInfo(
                 user.getId(),

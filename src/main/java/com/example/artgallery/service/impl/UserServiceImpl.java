@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+// Класс для работы с данными из бд для сущности пользователи
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -28,17 +29,22 @@ public class UserServiceImpl implements UserService {
     UserRepository userRepository;
     ExhibitionRepository exhibitionRepository;
 
+    // Создание всех пользователей
     @Override
     public UserResponse createNewUser(CreateUserRequest userRequest) {
+        if (userRepository.findByUsername(userRequest.getUsername()) != null) {
+            throw new BadRequestException(String.format("User with username \"%s\" already exists", userRequest.getUsername()));
+        }
         UserContext context = userFactory.createContextFrom(userRequest);
         User user = new User(context);
         user = userRepository.save(user);
         return userFactory.createResponse(user);
     }
 
+    // Регистрирование пользователя на выставку
     @Override
-    public UserResponse addExhibition(Long idUser, Long idExhibition) {
-        User user = userRepository.getReferenceById(idUser);
+    public UserResponse addExhibition(String username, Long idExhibition) {
+        User user = userRepository.findByUsername(username);
         List<Long> exhibitions = user
                 .getExhibitions()
                 .stream()
@@ -46,7 +52,11 @@ public class UserServiceImpl implements UserService {
         if (exhibitions.contains(idExhibition)){
             throw new BadRequestException("You have already registered for this exhibition");
         }
-        user.addExhibition(exhibitionRepository.getReferenceById(idExhibition));
+        Exhibition exhibition = exhibitionRepository.getReferenceById(idExhibition);
+        if (exhibition.getParticipants().size() >= exhibition.getCountPlaces()) {
+            throw new BadRequestException("Oops, sold out...");
+        }
+        user.addExhibition(exhibition);
         user = userRepository.save(user);
         return userFactory.createResponse(user);
     }

@@ -15,6 +15,7 @@ import javax.validation.Valid;
 
 import static lombok.AccessLevel.PRIVATE;
 
+// Контроллер админа для сущности "Картины"
 @AdminApiV1
 @RequiredArgsConstructor
 @FieldDefaults(level = PRIVATE, makeFinal = true)
@@ -22,6 +23,7 @@ public class AdminPictureController {
 
     PictureService pictureService;
 
+    // Метод создания картины
     @PostMapping("/picture")
     public ResponseEntity<PictureResponse> createPicture(@RequestBody @Valid CreatePictureRequest pictureRequest) {
         return new ResponseEntity<>(pictureService.createNewPicture(pictureRequest), HttpStatus.OK);

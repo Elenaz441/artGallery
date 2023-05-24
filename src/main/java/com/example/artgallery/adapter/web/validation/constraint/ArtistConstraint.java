@@ -13,6 +13,8 @@ import java.lang.annotation.Target;
 
 import static java.lang.annotation.ElementType.FIELD;
 
+// Аннотация валидации для имени художников (при создании картины):
+// имя минимально должно содержать две буквы и начинаться с заглавной
 @NotBlank
 @Size(min = 2)
 @Target({ FIELD })

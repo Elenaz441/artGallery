@@ -1,4 +1,14 @@
 spring:
+  profiles:
+    active: test
+
+  rabbitmq:
+    host: ${RABBIT_HOST:localhost}
+    port: ${RABBIT_PORT:5672}
+    username: ${RABBIT_USERNAME:guest}
+    password: ${RABBIT_PASSWORD:guest}
+    virtual-host: ${RABBIT_VIRTUAL_HOST:/}
+
   datasource:
     url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB_NAME}
     username: ${POSTGRES_USERNAME:postgres}
@@ -17,3 +27,17 @@ spring:
     change-log: classpath:db/changelog/db.changelog-master.xml
     enabled: true
     contexts: prod
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus,info
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+my-config:
+  my-env: ${MY_ENV_VAR:default}
+  my-app: ${MY_APP_VAR:demo}

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 import static org.springframework.http.ResponseEntity.status;
 
+// Класс для обработки ошибок с кодом 404 (not found)
 @ApiAdvice
 @RequiredArgsConstructor
 public class NotFoundAdvice {
